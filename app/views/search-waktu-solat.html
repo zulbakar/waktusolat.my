@@ -1,0 +1,32 @@
+<p>This is the search-waktu-solat view.</p>
+
+<div class="col-md-6">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Negeri</label>
+        <div class="col-sm-8">
+            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.state" name="state" required
+                ng-options="option for option in $ctrl.States track by option" ng-change="$ctrl.getZones()">
+                            <option value="">--Sila Pilih--</option>
+                        </select>
+
+        </div>
+
+        {{$ctrl.SearchWaktu.state}}
+    </div>
+</div>
+
+
+<div class="col-md-6">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Zone</label>
+        <div class="col-sm-8">
+            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.zone" name="state" required
+                ng-options="option.lokasi for option in $ctrl.Zones track by option.zone">
+                            <option value="">--Sila Pilih--</option>
+                        </select>
+
+        </div>
+
+        {{$ctrl.SearchWaktu.zone}}
+    </div>
+</div>
