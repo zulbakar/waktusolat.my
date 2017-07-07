@@ -22,7 +22,8 @@ $err = curl_error($curl);
 curl_close($curl);
 
 if ($err) {
-  echo "cURL Error #:" . $err;
+  $err = array('status' => 'error');
+  echo $errJson = json_encode($err);
 } else {
   echo $response;
 }

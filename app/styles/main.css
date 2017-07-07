@@ -81,3 +81,11 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.bg-class1 {
+  background:#81c784;
+}
+.bg-classNowdate {
+  background:#c6ff00;
+}

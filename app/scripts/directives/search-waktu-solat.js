@@ -13,9 +13,27 @@ angular.module('waktusolatmyApp')
       function searchWaktuSolat($log, waktuSolatService) {
         var $ctrl = this;
 
+        var d = new Date();
         $ctrl.SearchWaktu = {};
-        $ctrl.States = {};
-        $ctrl.Zones = {};
+        $ctrl.filterObj = {};
+        $ctrl.States = [];
+        $ctrl.Zones = [];
+        $ctrl.Months = [];
+
+        /*GET YEAR*/
+        $ctrl.SearchWaktu.year = d.getFullYear();
+
+        /*now date */
+        var d = new Date();
+        var n = d.getFullYear();
+        var dd = d.getDate();
+        var mm = d.getMonth() + 1; //January is 0!
+        var yyyy = d.getFullYear();
+
+        if (dd < 10) { dd = '0' + dd }
+        if (mm < 10) { mm = '0' + mm }
+
+        $ctrl.nowDate = dd + '-' + mm + '-' + yyyy;
 
         $ctrl.getStates = function () {
 
@@ -32,20 +50,66 @@ angular.module('waktusolatmyApp')
 
         $ctrl.getZones = function () {
 
-          waktuSolatService.getZone({'state': $ctrl.SearchWaktu.state}).then(function (resp) {
+          if ($ctrl.SearchWaktu.state !== null && $ctrl.SearchWaktu.state) {
+            waktuSolatService.getZone({ 'state': $ctrl.SearchWaktu.state }).then(function (resp) {
 
-$log.log('Error in getZones',resp.data);
-            $ctrl.Zones = resp.data.results;
+              //$log.log('getZones', resp.data);
+              $ctrl.Zones = resp.data.results;
 
-          }, function (err) {
-            $log.log('Error in getZones');
+            }, function (err) {
+              $log.log('Error in getZones');
 
-          });
+            });
+          } else {
+            $ctrl.Zones = [];
+          }
 
         };
 
+        $ctrl.getMonth = function () {
+
+          if ($ctrl.SearchWaktu.zone !== null && $ctrl.SearchWaktu.zone) {
+            waktuSolatService.getMonth().then(function (resp) {
+
+              //$log.log('getMonth', resp.data);
+              $ctrl.Months = resp.data;
+
+            }, function (err) {
+              $log.log('Error in getMonth');
+
+            });
+          } else {
+            $ctrl.Months = [];
+          }
+
+        };
+
+        $ctrl.applySearchFilter = function () {
+          var frmData = angular.copy($ctrl.SearchWaktu);
+
+          if ($ctrl.SearchWaktu.month) {
+            frmData.month = $ctrl.SearchWaktu.month.monthCode;
+          }
+          if ($ctrl.SearchWaktu.zone) {
+            frmData.zone = $ctrl.SearchWaktu.zone.zone;
+          }
+
+          delete frmData.state;
+          delete frmData.year;
+
+          //$log.log('data dihantar', frmData);
+          $ctrl.filterObj = frmData;
+
+        };
+
+        $ctrl.resetFilter = function () {
+          $ctrl.SearchWaktu = {};
+          $ctrl.Zones = [];
+          $ctrl.Months = [];
+          $ctrl.filterObj = {};
+        };
+
         $ctrl.getStates();
-        //$ctrl.getZones();
 
       }]
   });

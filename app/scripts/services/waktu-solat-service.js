@@ -28,6 +28,22 @@ angular.module('waktusolatmyApp')
           params:paramsObj
         };
         return $http(config);
+      },
+      getMonth: function (paramsObj) {
+        var config = {
+          method:'GET',
+          url:'./api/get/get-month.php',
+          params:paramsObj
+        };
+        return $http(config);
+      },
+      getResult: function (paramsObj) {
+        var config = {
+          method:'GET',
+          url:'./api/get/get-result.php',
+          params:paramsObj
+        };
+        return $http(config);
       }
       
     };

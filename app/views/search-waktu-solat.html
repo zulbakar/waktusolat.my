@@ -1,4 +1,5 @@
 <p>This is the search-waktu-solat view.</p>
+<form name="searchForm">
 
 <div class="col-md-6">
     <div class="form-group">
@@ -10,23 +11,49 @@
                         </select>
 
         </div>
-
-        {{$ctrl.SearchWaktu.state}}
     </div>
 </div>
-
 
 <div class="col-md-6">
     <div class="form-group">
         <label class="col-sm-4 control-label">Zone</label>
         <div class="col-sm-8">
             <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.zone" name="state" required
-                ng-options="option.lokasi for option in $ctrl.Zones track by option.zone">
+                ng-options="option.lokasi for option in $ctrl.Zones track by option.zone" ng-disabled="$ctrl.Zones.length === 0"
+                ng-change="$ctrl.getMonth();">
                             <option value="">--Sila Pilih--</option>
                         </select>
 
         </div>
-
-        {{$ctrl.SearchWaktu.zone}}
     </div>
 </div>
+
+
+<div class="col-md-6">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Bulan</label>
+        <div class="col-sm-8">
+            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.month" name="state" required
+                ng-options="option.monthDesc for option in $ctrl.Months track by option.monthCode" ng-disabled="$ctrl.Months.length === 0">
+                            <option value="">--Sila Pilih--</option>
+                        </select>
+
+        </div>
+    </div>
+</div>
+
+<div class="form-group form-group-sm">
+                <label class="control-label col-md-2">&nbsp;</label>
+                <div class="col-md-10">
+                    <button class="btn btn-sm btn-primary" style="width: 100px;"
+                            ng-click="$ctrl.applySearchFilter()" ng-disabled="searchForm.$invalid">Cari
+                    </button>
+                    <button class="btn btn-sm btn-default" style="width: 100px;"
+                            ng-click="$ctrl.resetFilter()">Set Semula
+                    </button>
+                </div>
+            </div>
+
+</form>
+
+<result-waktu-solat search-obj="$ctrl.filterObj"></result-waktu-solat>
