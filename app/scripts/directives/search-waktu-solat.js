@@ -35,6 +35,8 @@ angular.module('waktusolatmyApp')
 
         $ctrl.nowDate = dd + '-' + mm + '-' + yyyy;
 
+        $ctrl.SearchWaktu.month = mm;
+
         $ctrl.getStates = function () {
 
           waktuSolatService.getState().then(function (resp) {
@@ -50,7 +52,7 @@ angular.module('waktusolatmyApp')
 
         $ctrl.getZones = function () {
 
-          if ($ctrl.SearchWaktu.state !== null && $ctrl.SearchWaktu.state) {
+          if ($ctrl.SearchWaktu.state !== "") {
             waktuSolatService.getZone({ 'state': $ctrl.SearchWaktu.state }).then(function (resp) {
 
               //$log.log('getZones', resp.data);
@@ -68,7 +70,7 @@ angular.module('waktusolatmyApp')
 
         $ctrl.getMonth = function () {
 
-          if ($ctrl.SearchWaktu.zone !== null && $ctrl.SearchWaktu.zone) {
+          if ($ctrl.SearchWaktu.zone !== "") {
             waktuSolatService.getMonth().then(function (resp) {
 
               //$log.log('getMonth', resp.data);
@@ -88,10 +90,10 @@ angular.module('waktusolatmyApp')
           var frmData = angular.copy($ctrl.SearchWaktu);
 
           if ($ctrl.SearchWaktu.month) {
-            frmData.month = $ctrl.SearchWaktu.month.monthCode;
+            frmData.month = $ctrl.SearchWaktu.month;
           }
           if ($ctrl.SearchWaktu.zone) {
-            frmData.zone = $ctrl.SearchWaktu.zone.zone;
+            frmData.zone = $ctrl.SearchWaktu.zone;
           }
 
           delete frmData.state;
@@ -107,6 +109,7 @@ angular.module('waktusolatmyApp')
           $ctrl.Zones = [];
           $ctrl.Months = [];
           $ctrl.filterObj = {};
+          $ctrl.SearchWaktu.month = mm;
         };
 
         $ctrl.getStates();

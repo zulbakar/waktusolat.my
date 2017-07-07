@@ -1,59 +1,79 @@
-<p>This is the search-waktu-solat view.</p>
+<center>{{$ctrl.nowDate}}</center>
+
 <form name="searchForm">
 
-<div class="col-md-6">
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Negeri</label>
-        <div class="col-sm-8">
-            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.state" name="state" required
-                ng-options="option for option in $ctrl.States track by option" ng-change="$ctrl.getZones()">
-                            <option value="">--Sila Pilih--</option>
-                        </select>
+    <div class="row">
 
+        <div class="col-md-12 col-sm-12">
+            <md-input-container class="md-block">
+                <label>NEGERI</label>
+                <md-select ng-model="$ctrl.SearchWaktu.state" name="state" required ng-change="$ctrl.getZones()">
+                    <md-option value="">--Sila Pilih--</md-option>
+                    <md-option value="{{option}}" ng-repeat="option in $ctrl.States">{{option | uppercase }}</md-option>
+                </md-select>
+
+                <div ng-messages="searchForm.state.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            Sila Pilih.
+                        </div>
+                    </div>
+
+            </md-input-container>
         </div>
-    </div>
-</div>
 
-<div class="col-md-6">
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Zone</label>
-        <div class="col-sm-8">
-            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.zone" name="state" required
-                ng-options="option.lokasi for option in $ctrl.Zones track by option.zone" ng-disabled="$ctrl.Zones.length === 0"
-                ng-change="$ctrl.getMonth();">
-                            <option value="">--Sila Pilih--</option>
-                        </select>
+        <div class="col-md-12 col-sm-12">
+            <md-input-container class="md-block">
+                <label>ZONE</label>
+                <md-select ng-model="$ctrl.SearchWaktu.zone" name="zone" required ng-disabled="$ctrl.Zones.length === 0" ng-change="$ctrl.getMonth();">
+                    <md-option value="">--Sila Pilih--</md-option>
+                    <md-option value="{{option.zone}}" ng-repeat="option in $ctrl.Zones">{{option.lokasi | uppercase }}</md-option>
+                </md-select>
 
+                <div ng-messages="searchForm.zone.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            Sila Pilih.
+                        </div>
+                    </div>
+            </md-input-container>
         </div>
-    </div>
-</div>
 
+        <div class="col-md-12 col-sm-12">
+            <md-input-container class="md-block">
+                <label>BULAN</label>
+                <md-select ng-model="$ctrl.SearchWaktu.month" name="month" required ng-disabled="$ctrl.Months.length === 0">
+                    <md-option value="">--Sila Pilih--</md-option>
+                    <md-option value="{{option.monthCode}}" ng-repeat="option in $ctrl.Months">{{option.monthDesc | uppercase }}</md-option>
+                </md-select>
 
-<div class="col-md-6">
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Bulan</label>
-        <div class="col-sm-8">
-            <select class="form-control input-sm" ng-model="$ctrl.SearchWaktu.month" name="state" required
-                ng-options="option.monthDesc for option in $ctrl.Months track by option.monthCode" ng-disabled="$ctrl.Months.length === 0">
-                            <option value="">--Sila Pilih--</option>
-                        </select>
-
+                <div ng-messages="searchForm.month.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            Sila Pilih.
+                        </div>
+                    </div>
+            </md-input-container>
         </div>
-    </div>
-</div>
 
-<div class="form-group form-group-sm">
-                <label class="control-label col-md-2">&nbsp;</label>
-                <div class="col-md-10">
-                    <button class="btn btn-sm btn-primary" style="width: 100px;"
-                            ng-click="$ctrl.applySearchFilter()" ng-disabled="searchForm.$invalid">Cari
-                    </button>
-                    <button class="btn btn-sm btn-default" style="width: 100px;"
-                            ng-click="$ctrl.resetFilter()">Set Semula
-                    </button>
+
+        <div class="col-md-12 col-sm-12">
+            <div class="form-group">
+                <label class="control-label col-md-4">&nbsp;</label>
+                <div class="col-md-8">
+
+                    <md-button class="md-raised md-accent" type="button" ng-click="$ctrl.applySearchFilter()" ng-disabled="searchForm.$invalid">Submit</md-button>
+                    <md-button class="md-raised" type="button" ng-click="$ctrl.resetFilter()">Reset</md-button>
+
                 </div>
             </div>
+        </div>
+
+    </div>
 
 </form>
 
-<result-waktu-solat search-obj="$ctrl.filterObj"></result-waktu-solat>
+<div class="row">
+    <div class="col-md-12">
+
+        <result-waktu-solat search-obj="$ctrl.filterObj"></result-waktu-solat>
+    </div>
+
+</div>

@@ -21,14 +21,7 @@ angular
   .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        template: '<waktu-solat-main></waktu-solat-main>'
       })
       .otherwise({
         redirectTo: '/'
