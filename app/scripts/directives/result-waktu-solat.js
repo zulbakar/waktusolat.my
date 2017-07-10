@@ -17,6 +17,7 @@ angular.module('waktusolatmyApp')
         var $ctrl = this;
 
         $ctrl.result = [];
+        $ctrl.isLoading = true;
 
         /*now date */
         var d = new Date();
@@ -44,6 +45,7 @@ angular.module('waktusolatmyApp')
 
             //$log.log('result', resp.data);
             $ctrl.result = resp.data.prayer_times;
+            $ctrl.isLoading = false;
 
           }, function (err) {
             $log.log('Error in result');

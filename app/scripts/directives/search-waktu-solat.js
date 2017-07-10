@@ -19,6 +19,7 @@ angular.module('waktusolatmyApp')
         $ctrl.States = [];
         $ctrl.Zones = [];
         $ctrl.Months = [];
+        $ctrl.isSearch=0;
 
         /*GET YEAR*/
         $ctrl.SearchWaktu.year = d.getFullYear();
@@ -101,6 +102,7 @@ angular.module('waktusolatmyApp')
 
           //$log.log('data dihantar', frmData);
           $ctrl.filterObj = frmData;
+          $ctrl.isSearch=1;
 
         };
 
@@ -110,6 +112,7 @@ angular.module('waktusolatmyApp')
           $ctrl.Months = [];
           $ctrl.filterObj = {};
           $ctrl.SearchWaktu.month = mm;
+          $ctrl.isSearch=0;
         };
 
         $ctrl.getStates();
