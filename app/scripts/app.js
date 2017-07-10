@@ -16,7 +16,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     $routeProvider

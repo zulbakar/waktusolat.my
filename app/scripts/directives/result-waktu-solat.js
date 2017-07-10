@@ -12,8 +12,8 @@ angular.module('waktusolatmyApp')
     bindings: {
       searchObj: '<'
     },
-    controller: ['$log', 'waktuSolatService',
-      function resultWaktuSolat($log, waktuSolatService) {
+    controller: ['$log', 'waktuSolatService', '$uibModal',
+      function resultWaktuSolat($log, waktuSolatService, $uibModal) {
         var $ctrl = this;
 
         $ctrl.result = [];
@@ -28,7 +28,7 @@ angular.module('waktusolatmyApp')
         if (dd < 10) { dd = '0' + dd }
         if (mm < 10) { mm = '0' + mm }
 
-        $ctrl.nowDate = dd+'-'+mm+'-'+yyyy;
+        $ctrl.nowDate = dd + '-' + mm + '-' + yyyy;
 
         $ctrl.$onChanges = function (changesObj) {
 
@@ -51,6 +51,30 @@ angular.module('waktusolatmyApp')
           });
 
         };
+
+        $ctrl.openPopupWaktu = function (waktuSolatObj) {
+
+          var modalInstance = $uibModal.open({
+            animation: true,
+            component: 'resultPopup',
+            resolve: {
+              waktuObj: function () {
+                return waktuSolatObj;
+              },
+              SearchObj: function () {
+                return $ctrl.searchObj;
+              },
+            }
+          });
+
+          modalInstance.result.then(function (selectedItem) {
+            $ctrl.selected = selectedItem;
+          }, function () {
+            $log.info('modal-component dismissed at: ' + new Date());
+          });
+
+        };
+
 
       }]
   });

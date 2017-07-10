@@ -3,10 +3,21 @@ $objFilter = (object) $_GET;
 unset($_GET);
 
 $state='';
+$zone='';
 
 if(isset($objFilter->state)){
   $state = $objFilter->state;
   $state = str_replace(' ', '+', $state);
+}
+
+if(isset($objFilter->zone)){
+  $zone = $objFilter->zone;
+}
+
+if($state!='' && $zone!=''){
+    $url="http://api.azanpro.com/zone/grouped.json?state=$state&zone=$zone";
+}else{
+    $url="http://api.azanpro.com/zone/grouped.json?state=$state";
 }
 
 if($state!=''){
@@ -14,7 +25,7 @@ if($state!=''){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "http://api.azanpro.com/zone/grouped.json?state=$state",
+    CURLOPT_URL => "$url",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,

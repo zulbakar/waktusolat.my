@@ -1,0 +1,79 @@
+<md-toolbar class="md-accent md-whiteframe-1dp" style="height: 30px;border-left:solid 10px #01579b;">
+    <div class="md-toolbar-tools">
+        <h2>{{$ctrl.resolve.waktuObj.date}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+            <md-icon md-font-library="material-icons">close</md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-dialog-content layout-padding>
+    <div class="md-dialog-content">
+
+        <md-list>
+            <md-list-item class="md-2-line md-long-text">
+                <div class="md-list-item-text">
+                    <h4><b>NEGERI : </b> {{$ctrl.Zones[0].negeri | uppercase}}</h4>
+                    <p style="color:#000000;"><b>ZON : </b> {{$ctrl.Zones[0].lokasi | uppercase}}</p>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+
+        <md-grid-list md-cols-xs="2" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
+            md-gutter="12px" md-gutter-gt-sm="8px">
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.imsak}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">IMSAK</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.subuh}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">SUBUH</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.syuruk}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">SYURUK</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.zohor}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">ZOHOR</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.asar}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">ASAR</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.maghrib}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">MAGHRIB</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+            <md-grid-tile class="bg-class2" md-colspan="2">
+                {{$ctrl.resolve.waktuObj.isyak}}
+                <md-grid-tile-footer>
+                    <h2 style="margin-left:130px;">ISYAK</h2>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+        </md-grid-list>
+
+    </div>
+</md-dialog-content>

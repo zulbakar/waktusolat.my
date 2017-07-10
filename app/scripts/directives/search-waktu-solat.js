@@ -96,7 +96,7 @@ angular.module('waktusolatmyApp')
             frmData.zone = $ctrl.SearchWaktu.zone;
           }
 
-          delete frmData.state;
+          //delete frmData.state;
           delete frmData.year;
 
           //$log.log('data dihantar', frmData);
