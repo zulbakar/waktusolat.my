@@ -58,6 +58,7 @@ angular.module('waktusolatmyApp')
 
               //$log.log('getZones', resp.data);
               $ctrl.Zones = resp.data.results;
+              $ctrl.SearchWaktu.zone='';
 
             }, function (err) {
               $log.log('Error in getZones');

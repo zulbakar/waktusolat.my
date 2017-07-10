@@ -7,7 +7,7 @@
         <div class="col-md-12 col-sm-12">
             <md-input-container class="md-block">
                 <label>NEGERI</label>
-                <md-select ng-model="$ctrl.SearchWaktu.state" name="state" required ng-change="$ctrl.getZones()">
+                <md-select ng-model="$ctrl.SearchWaktu.state" name="state" required ng-change="$ctrl.getZones();$ctrl.isSearch=0;">
                     <md-option value="">--Sila Pilih--</md-option>
                     <md-option value="{{option}}" ng-repeat="option in $ctrl.States">{{option | uppercase }}</md-option>
                 </md-select>
