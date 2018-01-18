@@ -12,12 +12,14 @@ angular.module('waktusolatmyApp')
 
     // Public API here
     var token = 'token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbmlzdHJhdG9ycyIsImNhbl9lZGl0X2VudGl0eSIsImNhbl9lZGl0X3dvcmtmbG93IiwiZGV2ZWxvcGVycyJdLCJlbWFpbCI6MTU0ODg5MjgwMCwic3ViIjoiNzQxNmEyOTQtZDMwMy00YTA4LWEzNDktNmIwMmU0ZTJlNjgyIiwibmJmIjoxNDc2OTMyMjY2LCJpYXQiOjE0NjExMjEwNjYsImV4cCI6MTU0ODg5MjgwMCwiYXVkIjoicnhnZW5lcmljIn0.hMq4Sltyy_24DWzVD8rJHJYPgG7Emp5EdCBrESLlNOk';
+    var urlbase = 'http://waktusolatmy.is-best.net';
+    //var urlbase = '.';
     return {
 
       getState: function (paramsObj) {
         var config = {
           method:'GET',
-          url:'./api/get/get-state.php',
+          url:urlbase + '/api/get/get-state.php',
           headers: { 'Authorization': token },
           params:paramsObj
         };
@@ -26,7 +28,7 @@ angular.module('waktusolatmyApp')
       getZone: function (paramsObj) {
         var config = {
           method:'GET',
-          url:'./api/get/get-zone.php',
+          url:urlbase + '/api/get/get-zone.php',
           headers: { 'Authorization': token },
           params:paramsObj
         };
@@ -35,7 +37,7 @@ angular.module('waktusolatmyApp')
       getMonth: function (paramsObj) {
         var config = {
           method:'GET',
-          url:'./api/get/get-month.php',
+          url:urlbase + '/api/get/get-month.php',
           headers: { 'Authorization': token },
           params:paramsObj
         };
@@ -44,7 +46,7 @@ angular.module('waktusolatmyApp')
       getResult: function (paramsObj) {
         var config = {
           method:'GET',
-          url:'./api/get/get-result.php',
+          url:urlbase + '/api/get/get-result.php',
           headers: { 'Authorization': token },
           params:paramsObj
         };
