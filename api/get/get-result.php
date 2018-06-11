@@ -20,7 +20,7 @@ if($zone!='' && $month!=''){
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => "http://api.azanpro.com/times/month.json?zone=$zone&month=$month&year=$year&format=12-hour",
+    CURLOPT_URL => "https://api.azanpro.com/times/month.json?zone=$zone&month=$month&year=$year&format=12-hour",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,

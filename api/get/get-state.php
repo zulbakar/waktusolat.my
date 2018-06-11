@@ -2,7 +2,7 @@
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.azanpro.com/zone/states.json",
+  CURLOPT_URL => "https://api.azanpro.com/zone/states.json",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

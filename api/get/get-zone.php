@@ -16,9 +16,9 @@ if(isset($objFilter->zone)){
 }
 
 if($state!='' && $zone!=''){
-    $url="http://api.azanpro.com/zone/grouped.json?state=$state&zone=$zone";
+    $url="https://api.azanpro.com/zone/grouped.json?state=$state&zone=$zone";
 }else{
-    $url="http://api.azanpro.com/zone/grouped.json?state=$state";
+    $url="https://api.azanpro.com/zone/grouped.json?state=$state";
 }
 
 if($state!=''){

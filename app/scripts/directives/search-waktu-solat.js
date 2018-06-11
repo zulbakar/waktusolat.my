@@ -20,6 +20,7 @@ angular.module('waktusolatmyApp')
         $ctrl.Zones = [];
         $ctrl.Months = [];
         $ctrl.isSearch=0;
+        $ctrl.isLoading = true;
 
         /*GET YEAR*/
         $ctrl.SearchWaktu.year = d.getFullYear();
@@ -43,6 +44,7 @@ angular.module('waktusolatmyApp')
           waktuSolatService.getState().then(function (resp) {
 
             $ctrl.States = resp.data.states;
+            $ctrl.isLoading = false;
 
           }, function (err) {
             $log.log('Error in getState');
@@ -53,12 +55,14 @@ angular.module('waktusolatmyApp')
 
         $ctrl.getZones = function () {
 
+          $ctrl.isLoading = true;
           if ($ctrl.SearchWaktu.state !== "") {
             waktuSolatService.getZone({ 'state': $ctrl.SearchWaktu.state }).then(function (resp) {
 
               //$log.log('getZones', resp.data);
               $ctrl.Zones = resp.data.results;
               $ctrl.SearchWaktu.zone='';
+              $ctrl.isLoading = false;
 
             }, function (err) {
               $log.log('Error in getZones');
@@ -72,11 +76,13 @@ angular.module('waktusolatmyApp')
 
         $ctrl.getMonth = function () {
 
+          $ctrl.isLoading = true;
           if ($ctrl.SearchWaktu.zone !== "") {
             waktuSolatService.getMonth().then(function (resp) {
 
               //$log.log('getMonth', resp.data);
               $ctrl.Months = resp.data;
+              $ctrl.isLoading = false;
 
             }, function (err) {
               $log.log('Error in getMonth');
