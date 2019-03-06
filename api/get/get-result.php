@@ -28,8 +28,7 @@ if($zone!='' && $month!=''){
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache",
-        "postman-token: f643e5ee-4330-d42d-71d1-16960662ed24"
+        "cache-control: no-cache"
     ),
     ));
 
