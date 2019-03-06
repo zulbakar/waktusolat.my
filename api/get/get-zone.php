@@ -34,8 +34,7 @@ if($state!=''){
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-      "cache-control: no-cache",
-      "postman-token: b3e7690c-4a8d-893c-251f-235f19347602"
+      "cache-control: no-cache"
     ),
   ));
 
