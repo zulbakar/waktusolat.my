@@ -3,7 +3,7 @@
     <span flex></span>
     <md-card layout-padding class="md-whiteframe-5dp" style="width: 100%;margin-left:1px;">
 
-        <md-content>
+        <md-content style="overflow: hidden;">
             <md-toolbar class="md-accent" style="height: 30px;border-left:solid 10px #01579b;">
 
                 <div class="md-toolbar-tools md-whiteframe-1dp">
@@ -14,13 +14,13 @@
 
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Hari Ini">
-                    <md-content class="md-padding">
+                    <md-content class="md-padding" style="overflow: hidden;">
                         <br />
                         <search-waktu-solat-today></search-waktu-solat-today>
                     </md-content>
                 </md-tab>
                 <md-tab label="Bulanan">
-                    <md-content class="md-padding">
+                    <md-content class="md-padding" style="overflow: hidden;">
                         <br />
                         <search-waktu-solat></search-waktu-solat>
                     </md-content>
@@ -30,7 +30,7 @@
 
     </md-card>
 
-    <advertisement></advertisement>
+    <advertisement style="overflow: hidden;"></advertisement>
 
 </div>
 
