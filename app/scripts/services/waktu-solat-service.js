@@ -46,6 +46,14 @@ angular.module('waktusolatmyApp')
           params:paramsObj
         };
         return $http(config);
+      },
+      getToday: function (paramsObj) {
+        var config = {
+          method:'GET',
+          url:urlbase + '/api/get/get-today.php',
+          params:paramsObj
+        };
+        return $http(config);
       }
       
     };

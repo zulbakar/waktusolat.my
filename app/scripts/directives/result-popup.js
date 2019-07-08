@@ -28,7 +28,7 @@ angular.module('waktusolatmyApp')
 
             waktuSolatService.getZone({ 'state': $ctrl.resolve.SearchObj.state,'zone': $ctrl.resolve.SearchObj.zone}).then(function (resp) {
 
-              //$log.log('getZones', resp.data.results);
+              // $log.log('getZones', resp.data.results);
               $ctrl.Zones = resp.data.results;
 
             }, function (err) {

@@ -38,23 +38,6 @@
         </div>
 
         <div class="col-md-12 col-sm-12">
-            <md-input-container class="md-block">
-                <label>PILIH BULAN</label>
-                <md-select ng-model="$ctrl.SearchWaktu.month" name="month" required ng-disabled="$ctrl.Months.length === 0">
-                    <md-option value="">--Sila Pilih--</md-option>
-                    <md-option value="{{option.monthCode}}" ng-repeat="option in $ctrl.Months">{{option.monthDesc | uppercase }}</md-option>
-                </md-select>
-
-                <div ng-messages="searchForm.month.$error" role="alert">
-                        <div ng-message-exp="['required']">
-                            Sila Pilih.
-                        </div>
-                    </div>
-            </md-input-container>
-        </div>
-
-
-        <div class="col-md-12 col-sm-12">
             <div class="form-group">
                 <label class="control-label col-md-4">&nbsp;</label>
                 <div class="col-md-8">
@@ -69,12 +52,5 @@
     </div>
 
 </form>
-
-<div class="row" ng-if="$ctrl.isSearch==1">
-    <div class="col-md-12">
-        <result-waktu-solat search-obj="$ctrl.filterObj"></result-waktu-solat>
-    </div>
-
-</div>
 
 <preloader ng-if="$ctrl.isLoading"></preloader>

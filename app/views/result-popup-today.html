@@ -1,6 +1,6 @@
 <md-toolbar class="md-accent md-whiteframe-1dp" style="height: 30px;border-left:solid 10px #01579b;">
     <div class="md-toolbar-tools">
-        <h2>{{$ctrl.resolve.waktuObj.date}}</h2>
+        <h2>{{$ctrl.resolve.SearchObj.nowDate}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
             <md-icon md-font-library="material-icons">close</md-icon>
@@ -20,107 +20,108 @@
             </md-list-item>
         </md-list>
 
+
         <md-list>
 
             <md-divider></md-divider>
             <md-list-item class="secondary-button-padding bg-class3">
                 <p>IMSAK</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.imsak}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.imsak}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3-odd">
                 <p>SUBUH</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.subuh}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.subuh}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3">
                 <p>SYURUK</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.syuruk}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.syuruk}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3-odd">
                 <p>ZOHOR</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.zohor}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.zohor}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3">
                 <p>ASAR</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.asar}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.asar}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3-odd">
                 <p>MAGHRIB</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.maghrib}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.maghrib}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
             <md-list-item class="secondary-button-padding bg-class3">
                 <p>ISYAK</p>
-                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuObj.isyak}}</md-button>
+                <md-button class="md-secondary bg-class3">{{$ctrl.resolve.waktuTodayObj.isyak}}</md-button>
             </md-list-item>
 
             <md-divider></md-divider>
 
         </md-list>
 
-        <!-- <md-grid-list md-cols-xs="2" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
-            md-gutter="12px" md-gutter-gt-sm="8px">
+        <!-- <md-grid-list md-cols-xs="2" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1"
+            md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.imsak}}
+                {{$ctrl.resolve.waktuTodayObj.imsak}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>IMSAK</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.subuh}}
+                {{$ctrl.resolve.waktuTodayObj.subuh}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>SUBUH</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.syuruk}}
+                {{$ctrl.resolve.waktuTodayObj.syuruk}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>SYURUK</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.zohor}}
+                {{$ctrl.resolve.waktuTodayObj.zohor}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>ZOHOR</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.asar}}
+                {{$ctrl.resolve.waktuTodayObj.asar}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>ASAR</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.maghrib}}
+                {{$ctrl.resolve.waktuTodayObj.maghrib}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>MAGHRIB</h2>
                 </md-grid-tile-footer>
             </md-grid-tile>
 
             <md-grid-tile class="bg-class2" md-colspan="2">
-                {{$ctrl.resolve.waktuObj.isyak}}
+                {{$ctrl.resolve.waktuTodayObj.isyak}}
                 <md-grid-tile-footer style="justify-content: center;">
                     <h2>ISYAK</h2>
                 </md-grid-tile-footer>

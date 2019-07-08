@@ -91,6 +91,18 @@ body {
   font-size: 40px;
   color: #ffffff;
 }
+.bg-class3 {
+  /* background:#474747 ; */
+  font-size: 25px;
+  font-weight:bold;
+  /* color: #ffffff; */
+}
+.bg-class3-odd {
+  background:#01579b ;
+  font-size: 25px;
+  font-weight:bold;
+  color: #ffffff;
+}
 .bg-classNowdate {
   background:#c6ff00;
 }

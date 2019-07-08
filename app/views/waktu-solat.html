@@ -1,29 +1,37 @@
-<!-- <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-1" style="margin-top:5vh;">
+<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-1" style="margin-top:5vh;">
 
     <span flex></span>
     <md-card layout-padding class="md-whiteframe-5dp" style="width: 100%;margin-left:1px;">
+
         <md-content>
+            <md-toolbar class="md-accent" style="height: 30px;border-left:solid 10px #01579b;">
 
-            <md-toolbar class="md-accent md-whiteframe-1dp" style="height: 30px;border-left:solid 10px #01579b;">
-
-                <div class="md-toolbar-tools">
+                <div class="md-toolbar-tools md-whiteframe-1dp">
                     <h2 flex>Waktu Solat Di Malaysia</h2>
                 </div>
 
             </md-toolbar>
 
-            <md-content class="md-padding" style="overflow:hidden;">
-
-                <search-waktu-solat></search-waktu-solat>
-
-            </md-content>
-
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Hari Ini">
+                    <md-content class="md-padding">
+                        <br />
+                        <search-waktu-solat-today></search-waktu-solat-today>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Bulanan">
+                    <md-content class="md-padding">
+                        <br />
+                        <search-waktu-solat></search-waktu-solat>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
         </md-content>
 
     </md-card>
 
     <advertisement></advertisement>
 
-</div> -->
+</div>
 
-<iframe src="http://waktusolatmy.is-best.net/" style="border: 0; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%"></iframe>
+<!-- <iframe src="http://waktusolatmy.is-best.net/" style="border: 0; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%"></iframe> -->
