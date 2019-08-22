@@ -1,4 +1,4 @@
-<hr/>
+<!-- <hr/>
 
 <md-grid-list md-cols-xs="2" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
   md-gutter="12px" md-gutter-gt-sm="8px">
@@ -11,5 +11,120 @@
   </md-grid-tile>
 
 </md-grid-list>
+-->
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  /*.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+ .month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+} 
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+*/
+  .days {
+    /* border-top: #eeeeee solid 1px; */
+    padding: 10px 0;
+    margin: 20px auto auto auto;
+  }
+
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    /* margin: 5px; */
+    font-size: 20px;
+    color: #01579b;
+    border: #f5f5f5 solid 1px;
+    padding: 15px;
+  }
+
+  .days li .active {
+    font-weight: bold;
+    color: rgb(233, 30, 99);
+  }
+
+  .days li:hover {
+    color: rgb(233, 30, 99);
+  }
+  .days li .active:hover {
+    color: #01579b;
+  }
+
+  /* Add media queries for smaller screens */
+  @media screen and (max-width:720px) {
+
+    .weekdays li,
+    .days li {
+      /* width: 13.1%; */
+      padding: 8px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    /* .weekdays li, .days li {width: 12.5%;} */
+    /* .days li .active {padding: 2px;} */
+  }
+
+  @media screen and (max-width: 290px) {
+
+    .weekdays li,
+    .days li {
+      width: 12.2%;
+      padding: 8px;
+    }
+  }
+</style>
+
+<ul class="days">
+  <li ng-repeat="result in $ctrl.result">
+    <span ng-click="$ctrl.openPopupWaktu(result)" ng-class="{'active' : result.date===$ctrl.nowDate}">
+      {{ $ctrl.convertDate(result.date) | date : 'dd'}}
+    </span>
+  </li>
+</ul>
+
 
 <preloader ng-if="$ctrl.isLoading"></preloader>
